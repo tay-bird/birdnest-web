@@ -4,10 +4,11 @@ html {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  min-height:100%;
 }
 
 .outer {
-    min-height: 99%;
+    min-height: 99vh;
     align-items: center;
     display: flex;
     float: right;
