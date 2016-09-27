@@ -16,14 +16,14 @@ html {
 .middle {
     display: table-cell;
     vertical-align: middle;
-    padding: 5px;
+    padding: 10px;
 }
 
 .inner {
     margin-left: auto;
     margin-right: auto;
     float: right;
-    background: rbga(0,0,0,0.2);
+    background: rgba(0,0,0,0.2);
     border-radius: 5px;
 }
 
