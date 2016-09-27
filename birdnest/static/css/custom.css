@@ -23,3 +23,7 @@ html {
     margin-right: auto;
     float: right;
 }
+
+.fa-cog {
+  color: black;
+}
