@@ -10,7 +10,7 @@ html {
     display: table;
     position: absolute;
     height: 99%;
-    width: 95%;
+    width: 99%;
 }
 
 .middle {
@@ -22,6 +22,10 @@ html {
     margin-left: auto;
     margin-right: auto;
     float: right;
+}
+
+.profile {
+    padding-right: 10px;
 }
 
 .fa {
