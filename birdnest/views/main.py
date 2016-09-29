@@ -6,6 +6,7 @@ import random
 from flask import make_response
 from flask import redirect
 from flask import render_template
+from flask import send_file
 
 
 @app.route("/")
@@ -23,7 +24,7 @@ def background():
         response = make_response(f.read())
         response.content_type = "image/jpeg"
 
-    return response
+    return send_file(background, mimetype="image/jpeg")
 
 
 @app.route("/resume")
