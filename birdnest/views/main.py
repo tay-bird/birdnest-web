@@ -12,7 +12,7 @@ from flask import render_template
 def home():
     return render_template("index.html")
 
-@pp.route("/background")
+@app.route("/background")
 def background():
     current_dir = os.path.dirname(os.path.abspath(__file__))
     image_dir = os.path.abspath(os.path.join(current_dir, "../static/img/"))
