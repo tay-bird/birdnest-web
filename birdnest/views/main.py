@@ -1,6 +1,7 @@
 from birdnest import app
 
 
+import logging
 import random
 
 import boto
@@ -46,4 +47,5 @@ def aboutme(path):
         headers = dict(key.resp.getheaders())
         return Response(key, headers=headers)
     except boto.exception.S3ResponseError as e:
+        logging.exception(e)
         return flask.Response(e.body, status=e.status, headers=key.resp.getheaders())
