@@ -3,6 +3,7 @@ from birdnest import app
 
 import random
 
+import boto
 from flask import make_response
 from flask import redirect
 from flask import render_template
@@ -30,3 +31,19 @@ def background():
 @app.route("/resume")
 def resume():
 	return redirect("/static/pdf/resume.pdf")
+
+
+@app.route("/aboutme/<path:path>")
+def aboutme(path):
+    # https://technology.jana.com/2015/03/12/using-flask-and-boto-to-create-a-proxy-to-s3/
+    conn = boto.s3.connection.S3Connection(anon=True)
+    bucket = conn.get_bucket('taybird-aboutme', validate=False)
+    key = boto.s3.key.Key(bucket)
+    key.key = path
+
+    try:
+        key.open_read()
+        headers = dict(key.resp.getheaders())
+        return Response(key, headers=headers)
+    except boto.exception.S3ResponseError as e:
+        return flask.Response(e.body, status=e.status, headers=key.resp.getheaders())
