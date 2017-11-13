@@ -18,7 +18,7 @@ from flask import send_file
 @app.route("/<path:path>")
 def home(path):
     bucket = S3Connector('taybird-birdnest')
-    response = bucket.read_key('path')
+    response = bucket.read_key(path)
 
     return response
 
