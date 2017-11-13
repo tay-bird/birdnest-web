@@ -27,25 +27,6 @@ def home(path=''):
     return response
 
 
-@app.route("/background")
-def background():
-    current_dir = os.path.dirname(os.path.abspath(__file__))
-    image_dir = os.path.abspath(os.path.join(current_dir, "../static/img/"))
-    images = glob.glob(os.path.join(image_dir, "bg_*"))
-    background = random.choice(images)
-
-    with open(background) as f:
-        response = make_response(f.read())
-        response.content_type = "image/jpeg"
-
-    return send_file(background, mimetype="image/jpeg")
-
-
-@app.route("/resume")
-def resume():
-	return redirect("/static/pdf/resume.pdf")
-
-
 @app.route("/aboutme/")
 @app.route("/aboutme/<path:path>")
 def aboutme(path=''):
