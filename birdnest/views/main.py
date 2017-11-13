@@ -17,7 +17,11 @@ from flask import send_file
 
 @app.route("/")
 def home():
-    return render_template("index.html")
+    bucket = S3Connector('taybird-birdnest')
+    response = bucket.read_key('index.html')
+
+    return response
+
 
 @app.route("/background")
 def background():
@@ -40,15 +44,26 @@ def resume():
 
 @app.route("/aboutme/<path:path>")
 def aboutme(path):
-    # https://technology.jana.com/2015/03/12/using-flask-and-boto-to-create-a-proxy-to-s3/
-    conn = S3Connection(anon=True)
-    bucket = conn.get_bucket('taybird-aboutme', validate=False)
-    key = boto.s3.key.Key(bucket)
-    key.key = path
+    bucket = S3Connector('taybird-aboutme')
+    response = bucket.read_key(path)
 
-    try:
-        key.open_read()
-        headers = dict(key.resp.getheaders())
-        return Response(key, headers=headers)
-    except boto.exception.S3ResponseError as e:
-        return flask.Response(e.body, status=e.status, headers=key.resp.getheaders())
+    return response
+
+
+class S3Connector(Object):
+
+    # https://technology.jana.com/2015/03/12/using-flask-and-boto-to-create-a-proxy-to-s3/
+    def __init__(self, bucket_name):
+        self.connection = S3Connection(anon=True)
+        self.bucket = self.connection.get_bucket(bucket_name, validate=False)
+        self.key = boto.s3.key.Key(bucket)
+
+    def read_key(self, object_path):
+        self.key.key = object_path
+        
+        try:
+            key.open_read()
+            headers = dict(key.resp.getheaders())
+            return Response(key, headers=headers)
+        except boto.exception.S3ResponseError as e:
+            return flask.Response(e.body, status=e.status, headers=key.resp.getheaders())
