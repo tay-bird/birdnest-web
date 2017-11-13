@@ -56,14 +56,14 @@ class S3Connector(object):
     def __init__(self, bucket_name):
         self.connection = S3Connection(anon=True)
         self.bucket = self.connection.get_bucket(bucket_name, validate=False)
-        self.key = boto.s3.key.Key(bucket)
+        self.key = boto.s3.key.Key(self.bucket)
 
     def read_key(self, object_path):
         self.key.key = object_path
         
         try:
-            key.open_read()
-            headers = dict(key.resp.getheaders())
-            return Response(key, headers=headers)
+            self.key.open_read()
+            headers = dict(self.key.resp.getheaders())
+            return Response(self.key, headers=headers)
         except boto.exception.S3ResponseError as e:
-            return flask.Response(e.body, status=e.status, headers=key.resp.getheaders())
+            return flask.Response(e.body, status=e.status, headers=self.key.resp.getheaders())
