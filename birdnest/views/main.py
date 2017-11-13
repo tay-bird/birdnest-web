@@ -50,7 +50,7 @@ def aboutme(path):
     return response
 
 
-class S3Connector(Object):
+class S3Connector(object):
 
     # https://technology.jana.com/2015/03/12/using-flask-and-boto-to-create-a-proxy-to-s3/
     def __init__(self, bucket_name):
