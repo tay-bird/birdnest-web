@@ -15,6 +15,9 @@ from flask import Response
 from flask import send_file
 
 
+INDEX_PATH = 'index.html'
+
+
 @app.route("/<path:path>")
 def home(path):
     bucket = S3Connector('taybird-birdnest')
@@ -59,8 +62,11 @@ class S3Connector(object):
         self.key = boto.s3.key.Key(self.bucket)
 
     def read_key(self, object_path):
-        self.key.key = object_path
-        
+        if object_path:
+            self.key.key = object_path
+        else:
+            self.key.key = INDEX_PAGE
+
         try:
             self.key.open_read()
             headers = dict(self.key.resp.getheaders())
