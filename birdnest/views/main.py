@@ -15,14 +15,15 @@ from flask import Response
 from flask import send_file
 
 
-INDEX_PATH = 'index.html'
+INDEX_PAGE = 'index.html'
 
 
+@app.route("/")
 @app.route("/<path:path>")
-def home(path):
-    bucket = S3Connector('taybird-birdnest')
-    response = bucket.read_key(path)
-
+def home(path=''):
+    bucket = S3Connector('taybird-birdnest')                                                                                                                                                                                      
+                                                                                                                                                                                                                                      
+    response = bucket.read_key(path)                                                                                                                                                                                                  
     return response
 
 
@@ -45,11 +46,12 @@ def resume():
 	return redirect("/static/pdf/resume.pdf")
 
 
+@app.route("/aboutme/")
 @app.route("/aboutme/<path:path>")
-def aboutme(path):
+def aboutme(path=''):
     bucket = S3Connector('taybird-aboutme')
-    response = bucket.read_key(path)
 
+    response = bucket.read_key(path)
     return response
 
 
@@ -71,5 +73,6 @@ class S3Connector(object):
             self.key.open_read()
             headers = dict(self.key.resp.getheaders())
             return Response(self.key, headers=headers)
+
         except boto.exception.S3ResponseError as e:
             return Response(e.body, status=e.status, headers=self.key.resp.getheaders())
