@@ -1,9 +1,6 @@
 branches:
   only:
   - production
-language: python
-python:
-- '2.7'
 before_install:
 - git config --global user.name "Travis CI"
 - git config --global user.email "tay@taybird.com"
