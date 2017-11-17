@@ -9,7 +9,7 @@ before_install:
 deploy:
   provider: s3
   region: us-west-2
-  local_dir: html
+  local_dir: birdnest
   bucket: taybird-birdnest
   detect_encoding: true
   acl: public_read
