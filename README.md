@@ -1,2 +1,2 @@
 # BIRDNEST.
-This is the code that serves **https://taybird.com/**.
+This is the content served at **https://taybird.com/**.
