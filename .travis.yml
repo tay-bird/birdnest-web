@@ -2,7 +2,7 @@ branches:
   only:
   - production
 language: python        
-  python:       
+python:       
   - '2.7'
 before_install:
 - git config --global user.name "Travis CI"
