@@ -4,6 +4,8 @@ window.onload = function () {
     var ctx = canvas.getContext("2d");
 
     function redrawCanvas() {
+        console.log('redraw');
+
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
 
