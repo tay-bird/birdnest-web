@@ -7,7 +7,7 @@ window.onload = function () {
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
 
-        iterations = Math.floor(Math.random() * 5) + 5;
+        iterations = Math.floor(Math.random() * 4) + 4;
 
         for (i = 0; i < iterations; i++) {
             first_size = Math.floor(Math.random() * 50) + (i * 25);
