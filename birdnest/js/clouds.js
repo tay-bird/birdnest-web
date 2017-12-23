@@ -9,7 +9,10 @@ window.onload = function () {
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
 
-        ctx.globalAlpha = 0.2;
+        ctx.globalAlpha = 1.0;
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+        ctx.globalAlpha = 0.1;
         ctx.fillStyle = "#87CEEB";
         ctx.fillRect(0, 0, canvas.width, canvas.height);
 
