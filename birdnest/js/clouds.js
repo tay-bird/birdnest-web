@@ -24,6 +24,7 @@ window.onload = function () {
     }
 
     function draw_cloud(font_size, x_position, y_position) {
+        ctx.globalAlpha=0.2;
         ctx.font = font_size + 'px FontAwesome';
         ctx.fillText('\uF0C2', x_position, y_position);
     }
