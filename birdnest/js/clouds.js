@@ -1,4 +1,4 @@
-var canvas = document.getElementById("clouds");
+var canvas = document.createElement('clouds');
 var ctx = canvas.getContext("2d");
 
 function redrawCanvas() {
@@ -17,4 +17,4 @@ function draw_cloud(font_size, x_position, y_position) {
 window.addEventListener('resize', redrawCanvas, false);
 redrawCanvas()
 
-/* document.body.style.background = "url(" + canvas.toDataURL() + ") no-repeat center center fixed"; */
+document.body.style.background = "url(" + canvas.toDataURL() + ") no-repeat center center fixed";
