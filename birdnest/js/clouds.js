@@ -10,15 +10,15 @@ window.onload = function () {
         iterations = Math.floor(Math.random() * 4) + 4;
 
         for (i = 0; i < iterations; i++) {
-            # Cloud have a variable size that tends to increase each iteration.
+            // Cloud have a variable size that tends to increase each iteration.
             first_size = Math.floor(Math.random() * 50) + (i * 25);
             
-            # Cloud tends to be towards the centre, moreso larger ones.
+            // Cloud tends to be towards the centre, moreso larger ones.
             first_x = Math.floor(Math.random() * (canvas.width - first_size)) + (first_size / 2)
             first_y = Math.floor(Math.random() * (canvas.height - first_size)) + (first_size / 2)
             first_alpha =  0.6 - (i / 20)
 
-            # Cloud is randomly placed and tends to be very transparent.
+            // Cloud is randomly placed and tends to be very transparent.
             second_size = first_size / i
             second_x = Math.floor(Math.random() * canvas.width)
             second_y = Math.floor(Math.random() * canvas.height)
