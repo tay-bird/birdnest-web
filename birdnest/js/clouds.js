@@ -1,3 +1,6 @@
+// clouds for taybird.com
+
+
 window.onload = function () {
 
     var canvas = document.createElement('canvas');
@@ -46,8 +49,14 @@ window.onload = function () {
     }
 
     window.addEventListener('resize', redrawCanvas, false);
+    window.addEventListener('orientationchange', redrawCanvas, false);
     redrawCanvas()
 
-    document.body.style.background = "url(" + canvas.toDataURL() + ") no-repeat center center fixed";
+    document.body.style.background = "url(" + canvas.toDataURL() + ")";
+    document.body.style.setProperty('background-attachment', 'fixed');
+    document.body.style.setProperty('background-position-x', 'center');
+    document.body.style.setProperty('background-position-y', 'center');
+    document.body.style.setProperty('background-repeat', 'no-repeat');
+    document.body.style.setProperty('background-size', 'cover');
 
 }
