@@ -24,8 +24,8 @@ window.onload = function () {
             second_y = Math.floor(Math.random() * canvas.height)
             second_alpha = Math.random()- 0.5
 
-            draw_cloud(first_size, first_x, first_y, first_alpha)
-            draw_cloud(second_size, second_x, second_y, second_alpha)
+            draw_cloud(first_size, first_apha, first_x, first_y)
+            draw_cloud(second_size, second_alpha, second_x, second_y)
         }
     }
 
