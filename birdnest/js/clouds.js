@@ -11,7 +11,8 @@ window.onload = function () {
 
         for (i = 0; i < iterations; i++) {
             // Cloud have a variable size that tends to increase each iteration.
-            first_size = Math.floor(Math.random() * 50) + (i * 25);
+            // Cloud should be larger if total number of clouds is low.
+            first_size = Math.floor(Math.random() * 50) + (i * 25) + ((8 - iterations) * 50);
             
             // Cloud tends to be towards the centre, moreso larger ones.
             first_x = Math.floor(Math.random() * (canvas.width - first_size)) + (first_size / 2)
