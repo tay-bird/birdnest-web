@@ -5,7 +5,7 @@ function redrawCanvas() {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 
-    iterations = Math.floor(Math.random() * 5);
+    iterations = Math.floor(Math.random() * 5) + 3;
 
     for (i = 0; i < iterations; i++) {
         first_size = Math.floor(Math.random() * 100) + (i * 10);
