@@ -7,6 +7,10 @@ window.onload = function () {
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
 
+        ctx.globalAlpha = 0.2;
+        ctx.fillStyle = "#87CEEB";
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
         iterations = Math.floor(Math.random() * 4) + 4;
 
         for (i = 0; i < iterations; i++) {
@@ -23,7 +27,7 @@ window.onload = function () {
             second_size = first_size / i
             second_x = Math.floor(Math.random() * canvas.width)
             second_y = Math.floor(Math.random() * canvas.height)
-            second_alpha = Math.random()- 0.5
+            second_alpha = Math.random() - 0.5
 
             draw_cloud(first_size, first_alpha, first_x, first_y)
             draw_cloud(second_size, second_alpha, second_x, second_y)
@@ -31,7 +35,7 @@ window.onload = function () {
     }
 
     function draw_cloud(font_size, alpha, x_position, y_position) {
-        ctx.globalAlpha=alpha;
+        ctx.globalAlpha = alpha;
         ctx.font = font_size + 'px FontAwesome';
         ctx.fillText('\uF0C2', x_position, y_position);
     }
