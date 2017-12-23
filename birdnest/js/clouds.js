@@ -5,8 +5,20 @@ function redrawCanvas() {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 
-    draw_cloud(200, canvas.width/2, canvas.height/2)
-    draw_cloud(100, canvas.width/4, canvas.height/4)
+    iterations = Math.floor(Math.random() * 5);
+
+    for (i = 0; i < iterations; i++) {
+        first_size = Math.floor(Math.random() * 100) + (i * 10);
+        first_x = Math.floor(Math.random() * (canvas.width - first_size)) + first_size
+        first_y = Math.floor(Math.random() * (canvas.height - first_size)) + first_size
+
+        second_size = first_size / i
+        second_x = Math.floor(Math.random() * canvas.width)
+        second_y = Math.floor(Math.random() * canvas.height)
+
+        draw_cloud(first_size, first_x, first_y)
+        draw_cloud(second_size, second_x, second_y)
+    }
 }
 
 function draw_cloud(font_size, x_position, y_position) {
