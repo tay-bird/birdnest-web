@@ -39,6 +39,13 @@ window.onload = function () {
 
             draw_cloud(first_size, first_alpha, first_x, first_y)
             draw_cloud(second_size, second_alpha, second_x, second_y)
+
+            document.body.style.background = "url(" + canvas.toDataURL() + ")";
+            document.body.style.setProperty('background-attachment', 'fixed');
+            document.body.style.setProperty('background-position-x', 'center');
+            document.body.style.setProperty('background-position-y', 'center');
+            document.body.style.setProperty('background-repeat', 'no-repeat');
+            document.body.style.setProperty('background-size', 'cover');
         }
     }
 
@@ -51,12 +58,5 @@ window.onload = function () {
     window.addEventListener('resize', redrawCanvas, false);
     window.addEventListener('orientationchange', redrawCanvas, false);
     redrawCanvas()
-
-    document.body.style.background = "url(" + canvas.toDataURL() + ")";
-    document.body.style.setProperty('background-attachment', 'fixed');
-    document.body.style.setProperty('background-position-x', 'center');
-    document.body.style.setProperty('background-position-y', 'center');
-    document.body.style.setProperty('background-repeat', 'no-repeat');
-    document.body.style.setProperty('background-size', 'cover');
 
 }
