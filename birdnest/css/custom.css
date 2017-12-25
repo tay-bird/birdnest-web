@@ -7,7 +7,7 @@ html {
 }
 
 .outer {
-    min-height: 99vh;
+    min-height: 90vh;
     align-items: center;
     display: flex;
     float: right;
