@@ -55,8 +55,8 @@ window.onload = function () {
         ctx.fillText('\uF0C2', x_position, y_position);
     }
 
-    window.addEventListener('resize', redrawCanvas, false);
-    window.addEventListener('orientationchange', redrawCanvas, false);
+    // window.addEventListener('resize', redrawCanvas, false);
+    // window.addEventListener('orientationchange', redrawCanvas, false);
     redrawCanvas()
 
 }
