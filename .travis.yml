@@ -1,6 +1,7 @@
 branches:
   only:
   - master
+  - production
 language: generic
 before_install:
 - git config --global user.name "Travis CI"
